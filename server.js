@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 const PORT = 3000;
@@ -29,7 +30,13 @@ const userSchema = new mongoose.Schema({
     minlength: 6
   }
 });
+// Статические файлы
+app.use(express.static(path.join(__dirname, 'public')));
 
+// Корневой маршрут — на главную
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'Untitled-1.html'));
+});
 // Хеширование пароля перед сохранением
 userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) return next();
