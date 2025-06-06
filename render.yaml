@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: shop-backend
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false # Будет установлено вручную в Render
+      - key: JWT_SECRET
+        generateValue: true # Автоматически генерирует безопасное значение
+      - key: PORT
+        value: 3000
+    healthCheckPath: /health
+    autoDeploy: true 

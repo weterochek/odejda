@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    <link href="styles/modal.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/font-awesome.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мужская одежда</title>
+    <style>
+         a {
+      text-decoration: none;
+      color: rgb(0, 0, 0); /* Можно также задать свой цвет */
+    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        nav a:hover {
+            background-color: #666;
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        .catalog {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .item {
+            background: white;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            background-color: #444;
+            color: white;
+            border-radius: 5px;
+        }
+        .buttons button:hover {
+            background-color: #666;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+     
+#topBtn {
+  display: none; /* по умолчанию скрыта */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+#topBtn:hover {
+  background-color: #666;
+}
+.dws-menu {
+            background-color: #585858a4;
+            /* Черный цвет фона */
+            position: fixed;
+            /* Сделайте его липким/фиксированным */
+            top: 0px;
+            /* Скрыть панель навигации 50 пикселей за пределами верхнего вида */
+            width: 100%;
+            /* Полная ширина */
+            transition: top 0.3s;
+            z-index: 1000;
+            
+        }
+
+        /* Стиль ссылок навигационной панели */
+        .dws-menu a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+        }
+
+        .dws-menu a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .logo {
+      margin-top: 50px; /* Картинка будет опущена на 50px */
+    }
+
+    </style>
+</head>
+<body>
+        <nav class="dws-menu">
+            <ul>
+                <a href="Untitled-1.html">Главная</a>
+                <a href="#catalog">Каталог</a>
+                <a href="#about">О нас</a>
+                <a href="#contact">Контакты</a>
+                <a href="cart.html">Корзина</a>
+                <a href="Ofice.html">Личный кабинет</a>
+            </ul>
+        </nav>
+    <div class="container">
+        <div class="logo">
+            <a href="Untitled-1.html">
+                <img src="images/logo.png" alt="logo" height="300px" width="300px">
+            </a>
+        </div>
+        <section id="catalog">
+            <h2>Каталог</h2>
+            <h3>Худи</h3>
+            <div class="catalog">
+                <style>
+                    img {
+                      border-radius: 10px; /* Чем больше значение — тем сильнее скругление */
+                    }
+                    </style>
+                <style>
+                    img {
+                      transition: transform 0.4s ease;
+                    }
+                  
+                    img:hover {
+                      transform: scale(0.9); /* Увеличение изображения при наведении */
+                    }
+                  </style>
+                <div class="item">
+                    <img src="images/xygi1.png" alt="Baggy оверсайз Худи" 
+                         onclick="openModal(
+                            'images/xygi1.png',
+                            'Baggy оверсайз Худи',
+                            'Стильное baggy худи оверсайз. Материал: 80% хлопок, 20% полиэстер. Особенности: свободный крой, капюшон на шнурке, карман-кенгуру, эластичные манжеты и низ. Идеально для повседневной носки и создания уличного стиля.',
+                            ['S', 'M', 'L', 'XL'],
+                            4000
+                         )"/>
+                    <h3>Baggy оверсайз Худи</h3>
+                    <p class="description">Стильное оверсайз худи свободного кроя</p>
+                    <p class="price">4000 руб.</p>
+                </div>
+                <div class="item">
+                    <img src="images/xygi2.png" alt="Оверсайз Худи" 
+                         onclick="openModal(
+                            'images/xygi2.png',
+                            'Оверсайз Худи',
+                            'Комфортное оверсайз худи из премиального хлопка. Материал: 100% хлопок. Особенности: мягкая внутренняя отделка, объемный капюшон, удобные карманы, современный крой. Подходит для любого случая.',
+                            ['S', 'M', 'L', 'XL'],
+                            4000
+                         )"/>
+                    <h3>Оверсайз Худи</h3>
+                    <p class="description">Комфортное худи из премиального хлопка</p>
+                    <p class="price">4000 руб.</p>
+                </div>
+                <div class="item">
+                    <img src="images/xygi3.png" alt="Худи Polo Assn" 
+                         onclick="openModal(
+                            'images/xygi3.png',
+                            'Худи Polo Assn',
+                            'Элегантное худи от Polo Assn. Материал: 95% хлопок, 5% эластан. Особенности: фирменная вышивка, премиальная фурнитура, комфортный крой. Сочетание спортивного стиля и элегантности.',
+                            ['S', 'M', 'L', 'XL'],
+                            4000
+                         )"/>
+                    <h3>Худи Polo Assn</h3>
+                    <p class="description">Элегантное худи премиум-класса</p>
+                    <p class="price">4000 руб.</p>
+                </div>
+                <div class="item">
+                    <img src="images/xygi4.png" alt="Худи Russel Athletic" 
+                         onclick="openModal(
+                            'images/xygi4.png',
+                            'Худи Russel Athletic',
+                            'Спортивное худи от Russel Athletic. Материал: 80% хлопок, 20% полиэстер. Особенности: дышащая ткань, усиленные швы, карман-кенгуру, эластичные манжеты. Идеально для тренировок и активного отдыха.',
+                            ['S', 'M', 'L', 'XL'],
+                            4000
+                         )"/>
+                    <h3>Худи Russel Athletic</h3>
+                    <p class="description">Спортивное худи для активного образа жизни</p>
+                    <p class="price">4000 руб.</p>
+                </div>
+                <div class="item">
+                    <img src="images/xygi5.png" alt="Толстовка New York" 
+                         onclick="openModal(
+                            'images/xygi5.png',
+                            'Толстовка New York',
+                            'Стильная толстовка с принтом New York. Материал: 90% хлопок, 10% полиэстер. Особенности: качественный принт, мягкий внутренний слой, удобный крой, прочные швы. Идеальна для создания городского образа.',
+                            ['S', 'M', 'L', 'XL'],
+                            6000
+                         )"/>
+                    <h3>Толстовка New York</h3>
+                    <p class="description">Стильная толстовка с городским принтом</p>
+                    <p class="price">6000 руб.</p>
+                </div>
+                <div class="item">
+                    <img src="images/xygi6.png" alt="Толстовка Porshe" 
+                         onclick="openModal(
+                            'images/xygi6.png',
+                            'Толстовка Porshe',
+                            'Премиальная толстовка от Porshe. Материал: 100% хлопок премиум-класса. Особенности: фирменная вышивка, эргономичный крой, высококачественная фурнитура, двойная прострочка. Воплощение элегантности и комфорта.',
+                            ['S', 'M', 'L', 'XL'],
+                            5000
+                         )"/>
+                    <h3>Толстовка Porshe</h3>
+                    <p class="description">Премиальная толстовка от известного бренда</p>
+                    <p class="price">5000 руб.</p>
+                </div>
+                <div class="item">
+                    <img src="images/xygi7.png" alt="Толстовка Nike New York" 
+                         onclick="openModal(
+                            'images/xygi7.png',
+                            'Толстовка Nike New York',
+                            'Спортивная толстовка Nike с принтом New York. Материал: 80% хлопок, 20% полиэстер. Особенности: технология Dri-FIT, анатомический крой. Сочетание стиля и функциональности.',
+                            ['S', 'M', 'L', 'XL'],
+                            6000
+                         )"/>
+                    <h3>Толстовка Nike New York</h3>
+                    <p class="description">Спортивная толстовка с городским дизайном</p>
+                    <p class="price">6000 руб.</p>
+                </div>
+                <div class="item">
+                    <img src="images/xygi8.png" alt="Толстовка New York Yankees" 
+                         onclick="openModal(
+                            'images/xygi8.png',
+                            'Толстовка New York Yankees',
+                            'Официальная толстовка New York Yankees. Материал: 85% хлопок, 15% полиэстер. Особенности: официальная символика MLB, высококачественная вышивка,  прочные швы. Аутентичный merchandise команды.',
+                            ['S', 'M', 'L', 'XL'],
+                            7800
+                         )"/>
+                    <h3>Толстовка New York Yankees</h3>
+                    <p class="description">Официальная толстовка MLB</p>
+                    <p class="price">7800 руб.</p>
+                </div>
+                <div class="item">
+                    <img src="images/xygi9.png" alt="Толстовка Nike Streetwear" 
+                         onclick="openModal(
+                            'images/xygi9.png',
+                            'Толстовка Nike Streetwear',
+                            'Уличная толстовка Nike Streetwear. Материал: 70% хлопок, 30% полиэстер. Особенности: уникальный дизайн, свободный крой, большой принт, качественная фурнитура. Создана для любителей уличной моды.',
+                            ['S', 'M', 'L', 'XL'],
+                            5000
+                         )"/>
+                    <h3>Толстовка Nike Streetwear</h3>
+                    <p class="description">Стильная толстовка для уличной моды</p>
+                    <p class="price">5000 руб.</p>
+                </div>
+                <div class="item">
+                    <img src="images/xygi10.png" alt="Толстовка Nike 90s" 
+                         onclick="openModal(
+                            'images/xygi10.png',
+                            'Толстовка Nike 90s',
+                            'Ретро толстовка Nike в стиле 90-х. Материал: 100% хлопок. Особенности: винтажный дизайн, оригинальный крой, состаренный принт, классический силуэт. Идеальна для создания ретро образа.',
+                            ['S', 'M', 'L', 'XL'],
+                            4000
+                         )"/>
+                    <h3>Толстовка Nike 90s</h3>
+                    <p class="description">Винтажная толстовка в стиле 90-х</p>
+                    <p class="price">4000 руб.</p>
+                </div>
+            </div>
+        </section>
+        <section id="about">
+            <h2>О нас</h2>
+            <p>Мы предлагаем стильную и качественную мужскую одежду на любой вкус.</p>
+        </section>
+        <div class="buttons">
+            <a href="cart.html"><button>Перейти в корзину</button></a>
+            <a href="Ofice.html"><button>Личный кабинет</button></a>
+        </div>
+        <section id="contact">
+            <h2>Контакты</h2>
+            <p>Email: mmmmmmmmmboec@gmail.com</p>
+            <p>Телефон: +7 900 123-45-67</p>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mmmmmmmmmboec@gmail.com&su=Хочу%20оформить%20заказ&body=Здравствуйте!%0AЯ%20хочу%20заказать%20товары%20из%20вашей%20коллекции.%0AСвяжитесь%20со%20мной,%20пожалуйста." target="_blank" title="Написать письмо">
+                <img src="images/gmail.png" alt="Написать письмо" width="50" height="50" style="cursor: pointer;">
+              </a>
+
+              
+              
+              <a href="https://wa.me/79001234567?text=Здравствуйте!%20Я%20хочу%20сделать%20заказ." target="_blank" title="Написать в WhatsApp">
+                <img src="images/whatsap.png" alt="Написать в WhatsApp" width="50" height="50" style="cursor: pointer;">
+              </a>
+              
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 Мужская одежда. Все права защищены.</p>
+    </footer>
+    <button onclick="scrollToTop()" id="topBtn" title="Наверх">↑</button>
+
+    <script>
+        window.onscroll = function () {
+          const btn = document.getElementById("topBtn");
+          if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            btn.style.display = "block";
+          } else {
+            btn.style.display = "none";
+          }
+        };
+        
+        function scrollToTop() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        </script>
+        <script>
+            function addToCart(productName, price, size) {
+                const product = {
+                    name: productName,
+                    price: price,
+                    size: size
+                };
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                cart.push(product);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                alert(`Добавлено в корзину: ${product.name}, размер: ${product.size}, цена: ${product.price}₽`);
+            }
+        </script>
+
+        <!-- Модальное окно -->
+        <div id="productModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div class="modal-image-container">
+                    <img id="modalImage" class="modal-image" src="" alt="Product Image">
+                </div>
+                <div class="modal-details">
+                    <h2 id="modalTitle" class="modal-title"></h2>
+                    <p id="modalDescription" class="modal-description"></p>
+                    <div id="modalSizes" class="modal-sizes"></div>
+                    <div id="modalPrice" class="modal-price"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="scripts/modal.js"></script>
+</body>
+</html>

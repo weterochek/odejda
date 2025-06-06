@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    <link href="styles/modal.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/font-awesome.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мужская одежда</title>
+    <style>
+        #topBtn {
+  display: none; /* по умолчанию скрыта */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+#topBtn:hover {
+  background-color: #666;
+}
+         a {
+      text-decoration: none;
+      color: rgb(0, 0, 0); /* Можно также задать свой цвет */
+    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        nav a:hover {
+            background-color: #666;
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        .catalog {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .item {
+            background: white;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            background-color: #444;
+            color: white;
+            border-radius: 5px;
+        }
+        .buttons button:hover {
+            background-color: #666;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .dws-menu {
+            background-color: #585858a4;
+            /* Черный цвет фона */
+            position: fixed;
+            /* Сделайте его липким/фиксированным */
+            top: 0px;
+            /* Скрыть панель навигации 50 пикселей за пределами верхнего вида */
+            width: 100%;
+            /* Полная ширина */
+            transition: top 0.3s;
+            z-index: 1000;
+            
+        }
+
+        /* Стиль ссылок навигационной панели */
+        .dws-menu a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+        }
+
+        .dws-menu a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .logo {
+      margin-top: 50px; /* Картинка будет опущена на 50px */
+    }
+    </style>
+</head>
+<body>
+        <nav class="dws-menu">
+            <ul>
+                <a href="Untitled-1.html">Главная</a>
+                <a href="#catalog">Каталог</a>
+                <a href="#about">О нас</a>
+                <a href="#contact">Контакты</a>
+                <a href="cart.html">Корзина</a>
+                <a href="Ofice.html">Личный кабинет</a>
+            </ul>
+        </nav>
+    <div class="container">
+        <div class="logo">
+            <a href="Untitled-1.html">
+                <img src="images/logo.png" alt="logo" height="300px" width="300px">
+            </a>
+        </div>
+        <section id="catalog">
+            <h2>Каталог</h2>
+            <h3>Двубортные костюмы</h3>
+            <div class="catalog">
+                <style>
+                    img {
+                      border-radius: 10px; /* Чем больше значение — тем сильнее скругление */
+                    }
+                    </style>
+                <style>
+                    img {
+                      transition: transform 0.4s ease;
+                    }
+                  
+                    img:hover {
+                      transform: scale(0.9); /* Увеличение изображения при наведении */
+                    }
+                  </style>
+                <div class="item">
+                    <img src="images/2Scustom1.png" alt="Двубортный костюм классический" 
+                         onclick="openModal(
+                            'images/2Scustom1.png', 
+                            'Двубортный костюм классический', 
+                            'Элегантный двубортный костюм классического кроя. Материал: высококачественная шерсть. Особенности: идеальная посадка, стильный крой.',
+                            ['S', 'M', 'L', 'XL'],
+                            18000
+                         )"/>
+                    <h3>Двубортный костюм классический</h3>
+                    <p class="description">Элегантный классический костюм</p>
+                    <p class="price">18000 руб.</p>
+                </div>
+                <div class="item">
+                    <img src="images/2Scustom2.png" alt="Двубортный костюм деловой" 
+                         onclick="openModal(
+                            'images/2Scustom2.png', 
+                            'Двубортный костюм деловой', 
+                            'Деловой двубортный костюм премиум класса. Материал: итальянская шерсть. Особенности: современный крой, отличная посадка.',
+                            ['S', 'M', 'L', 'XL'],
+                            18000
+                         )"/>
+                    <h3>Двубортный костюм деловой</h3>
+                    <p class="description">Премиальный деловой костюм</p>
+                    <p class="price">18000 руб.</p>
+                </div>
+                <div class="item">
+                    <img src="images/2Scustom3.png" alt="Двубортный костюм современный" 
+                         onclick="openModal(
+                            'images/2Scustom3.png', 
+                            'Двубортный костюм современный', 
+                            'Современный двубортный костюм с модным кроем. Материал: шерсть высшего качества с добавлением эластана. Особенности: комфортная посадка.',
+                            ['S', 'M', 'L', 'XL'],
+                            18000
+                         )"/>
+                    <h3>Двубортный костюм современный</h3>
+                    <p class="description">Современный стильный костюм</p>
+                    <p class="price">18000 руб.</p>
+                </div>
+                <div class="item">
+                    <img src="images/2Scustom4.png" alt="Двубортный костюм премиум" 
+                         onclick="openModal(
+                            'images/2Scustom4.png', 
+                            'Двубортный костюм премиум', 
+                            'Премиальный двубортный костюм из лимитированной коллекции. Материал: итальянская шерсть мериноса. Особенности: эксклюзивный крой.',
+                            ['S', 'M', 'L', 'XL'],
+                            18000
+                         )"/>
+                    <h3>Двубортный костюм премиум</h3>
+                    <p class="description">Премиальный костюм из лимитированной коллекции</p>
+                    <p class="price">18000 руб.</p>
+                </div>
+                <div class="item">
+                    <img src="images/2Scustom5.png" alt="Двубортный костюм люкс" 
+                         onclick="openModal(
+                            'images/2Scustom5.png', 
+                            'Двубортный костюм люкс', 
+                            'Люксовый двубортный костюм из премиальной коллекции. Материал: шерсть Super 150. Особенности: премиальный крой, эксклюзивный дизайн.',
+                            ['S', 'M', 'L', 'XL'],
+                            18000
+                         )"/>
+                    <h3>Двубортный костюм люкс</h3>
+                    <p class="description">Люксовый костюм премиум класса</p>
+                    <p class="price">18000 руб.</p>
+                </div>
+            </div>
+        </section>
+        <section id="about">
+            <h2>О нас</h2>
+            <p>Мы предлагаем стильную и качественную мужскую одежду на любой вкус.</p>
+        </section>
+        <div class="buttons">
+            <a href="cart.html"><button>Перейти в корзину</button></a>
+            <a href="Ofice.html"><button>Личный кабинет</button></a>
+        </div>
+        <section id="contact">
+            <h2>Контакты</h2>
+            <p>Email: mmmmmmmmmboec@gmail.com</p>
+            <p>Телефон: +7 900 123-45-67</p>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mmmmmmmmmboec@gmail.com&su=Хочу%20оформить%20заказ&body=Здравствуйте!%0AЯ%20хочу%20заказать%20товары%20из%20вашей%20коллекции.%0AСвяжитесь%20со%20мной,%20пожалуйста." target="_blank" title="Написать письмо">
+                <img src="images/gmail.png" alt="Написать письмо" width="50" height="50" style="cursor: pointer;">
+              </a>
+
+              
+              
+              <a href="https://wa.me/79001234567?text=Здравствуйте!%20Я%20хочу%20сделать%20заказ." target="_blank" title="Написать в WhatsApp">
+                <img src="images/whatsap.png" alt="Написать в WhatsApp" width="50" height="50" style="cursor: pointer;">
+              </a>
+              
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 Мужская одежда. Все права защищены.</p>
+    </footer>
+    <button onclick="scrollToTop()" id="topBtn" title="Наверх">↑</button>
+
+    <!-- Модальное окно -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            
+            <div class="modal-image-container">
+                <img id="modalImage" class="modal-image" src="" alt="Product Image">
+            </div>
+            
+            <div class="modal-details">
+                <h2 id="modalTitle" class="modal-title"></h2>
+                <p id="modalDescription" class="modal-description"></p>
+                <div id="modalSizes" class="modal-sizes"></div>
+                <div id="modalPrice" class="modal-price"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onscroll = function () {
+          const btn = document.getElementById("topBtn");
+          if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            btn.style.display = "block";
+          } else {
+            btn.style.display = "none";
+          }
+        };
+        
+        function scrollToTop() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function addToCart(productName, price, size) {
+            const product = {
+                name: productName,
+                price: price,
+                size: size
+            };
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push(product);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(`Добавлено в корзину: ${product.name}, размер: ${product.size}, цена: ${product.price}₽`);
+        }
+
+        function openModal(imageSrc, title, description, sizes, price) {
+            const modal = document.getElementById('productModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            const modalSizes = document.getElementById('modalSizes');
+            const modalPrice = document.getElementById('modalPrice');
+
+            modalImage.src = imageSrc;
+            modalImage.alt = title;
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            modalPrice.textContent = `Цена: ${price} руб.`;
+
+            // Очищаем предыдущие размеры
+            modalSizes.innerHTML = '';
+            
+            // Добавляем кнопки размеров
+            sizes.forEach(size => {
+                const button = document.createElement('button');
+                button.textContent = size;
+                button.onclick = () => {
+                    addToCart(title, price, size);
+                    closeModal();
+                };
+                modalSizes.appendChild(button);
+            });
+
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('productModal');
+            modal.style.display = 'none';
+        }
+
+        // Закрытие при клике вне модального окна
+        window.onclick = function(event) {
+            const modal = document.getElementById('productModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

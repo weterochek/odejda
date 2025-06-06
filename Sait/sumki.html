@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<link href="styles/style.css" rel="stylesheet" type="text/css"/>
+<link href="styles/modal.css" rel="stylesheet" type="text/css"/>
+<meta charset="utf-8"/>
+<link href="css/font-awesome.css" rel="stylesheet" type="text/css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Мужская одежда</title>
+<style>
+        #topBtn {
+  display: none; /* по умолчанию скрыта */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+#topBtn:hover {
+  background-color: #666;
+}
+         a {
+      text-decoration: none;
+      color: rgb(0, 0, 0); /* Можно также задать свой цвет */
+    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        nav a:hover {
+            background-color: #666;
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        .catalog {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .item {
+            background: white;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            background-color: #444;
+            color: white;
+            border-radius: 5px;
+        }
+        .buttons button:hover {
+            background-color: #666;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .dws-menu {
+            background-color: #585858a4;
+            /* Черный цвет фона */
+            position: fixed;
+            /* Сделайте его липким/фиксированным */
+            top: 0px;
+            /* Скрыть панель навигации 50 пикселей за пределами верхнего вида */
+            width: 100%;
+            /* Полная ширина */
+            transition: top 0.3s;
+            z-index: 1000;
+            
+        }
+
+        /* Стиль ссылок навигационной панели */
+        .dws-menu a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+        }
+
+        .dws-menu a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .logo {
+      margin-top: 50px; /* Картинка будет опущена на 50px */
+    }
+    </style>
+</head>
+<body>
+<nav class="dws-menu">
+<ul>
+<a href="Untitled-1.html">Главная</a>
+<a href="#catalog">Каталог</a>
+<a href="#about">О нас</a>
+<a href="#contact">Контакты</a>
+<a href="cart.html">Корзина</a>
+<a href="Ofice.html">Личный кабинет</a>
+</ul>
+</nav>
+<div class="container">
+<div class="logo">
+<a href="Untitled-1.html">
+<img alt="logo" height="300px" src="images/logo.png" width="300px"/>
+</a>
+</div>
+<section id="catalog">
+<h2>Каталог</h2>
+<h3>Сумки</h3>
+<div class="catalog">
+<style>
+                    img {
+                      border-radius: 10px; /* Чем больше значение — тем сильнее скругление */
+                    }
+                    </style>
+<style>
+                    img {
+                      transition: transform 0.4s ease;
+                    }
+                  
+                    img:hover {
+                      transform: scale(0.9); /* Увеличение изображения при наведении */
+                    }
+                  </style>
+<div class="item">
+    <img src="images/sumki1.png" alt="Сумка JACGUEMUS" 
+         onclick="openModal(
+            'images/sumki1.png', 
+            'Сумка JACGUEMUS', 
+            'Стильная сумка JACGUEMUS из премиальной коллекции. Материал: натуральная кожа высшего качества. Особенности: минималистичный дизайн, удобные ручки, внутренние карманы.',
+            ['Universal'],
+            5000
+         )"/>
+    <h3>Сумка JACGUEMUS</h3>
+    <p class="description">Премиальная кожаная сумка</p>
+    <p class="price">5000 руб.</p>
+</div>
+
+<div class="item">
+    <img src="images/sumki2.png" alt="Сумка BALENCIAGA" 
+         onclick="openModal(
+            'images/sumki2.png', 
+            'Сумка BALENCIAGA', 
+            'Люксовая сумка BALENCIAGA из эксклюзивной коллекции. Материал: итальянская кожа высшего качества. Особенности: фирменный дизайн, металлическая фурнитура, просторное внутреннее отделение.',
+            ['Universal'],
+            18000
+         )"/>
+    <h3>Сумка BALENCIAGA</h3>
+    <p class="description">Люксовая дизайнерская сумка</p>
+    <p class="price">18000 руб.</p>
+</div>
+
+<div class="item">
+    <img src="images/sumki3.png" alt="Сумка LOUIS VUITTON" 
+         onclick="openModal(
+            'images/sumki3.png', 
+            'Сумка LOUIS VUITTON', 
+            'Классическая сумка LOUIS VUITTON. Материал: фирменный канвас с кожаными элементами. Особенности: культовый монограммный принт, надежная фурнитура, комфортный размер.',
+            ['Universal'],
+            12000
+         )"/>
+    <h3>Сумка LOUIS VUITTON</h3>
+    <p class="description">Классическая сумка премиум-класса</p>
+    <p class="price">12000 руб.</p>
+</div>
+
+<div class="item">
+    <img src="images/sumki4.png" alt="Сумка COACH" 
+         onclick="openModal(
+            'images/sumki4.png', 
+            'Сумка COACH', 
+            'Практичная сумка COACH из современной коллекции. Материал: высококачественная кожа. Особенности: универсальный дизайн, множество отделений, прочная конструкция.',
+            ['Universal'],
+            8000
+         )"/>
+    <h3>Сумка COACH</h3>
+    <p class="description">Практичная кожаная сумка</p>
+    <p class="price">8000 руб.</p>
+</div>
+
+<div class="item">
+    <img src="images/sumki5.png" alt="Сумка LOUIS VUITTON Classic" 
+         onclick="openModal(
+            'images/sumki5.png', 
+            'Сумка LOUIS VUITTON Classic', 
+            'Элегантная сумка LOUIS VUITTON из классической линейки. Материал: премиальный канвас и натуральная кожа. Особенности: традиционный дизайн, качественная отделка, удобная форма.',
+            ['Universal'],
+            12000
+         )"/>
+    <h3>Сумка LOUIS VUITTON Classic</h3>
+    <p class="description">Элегантная классическая сумка</p>
+    <p class="price">12000 руб.</p>
+</div>
+
+<div class="item">
+    <img src="images/sumki6.png" alt="Сумка LOUIS VUITTON Modern" 
+         onclick="openModal(
+            'images/sumki6.png', 
+            'Сумка LOUIS VUITTON Modern', 
+            'Современная сумка LOUIS VUITTON. Материал: инновационный канвас с кожаной отделкой. Особенности: современный дизайн, улучшенная функциональность, стильный вид.',
+            ['Universal'],
+            10000
+         )"/>
+    <h3>Сумка LOUIS VUITTON Modern</h3>
+    <p class="description">Современная дизайнерская сумка</p>
+    <p class="price">10000 руб.</p>
+</div>
+
+<div class="item">
+    <img src="images/sumki7.png" alt="Сумка GALAMAS" 
+         onclick="openModal(
+            'images/sumki7.png', 
+            'Сумка GALAMAS', 
+            'Стильная сумка GALAMAS. Материал: эко-кожа премиального качества. Особенности: современный дизайн, экологичные материалы, доступная цена.',
+            ['Universal'],
+            5000
+         )"/>
+    <h3>Сумка GALAMAS</h3>
+    <p class="description">Стильная эко-сумка</p>
+    <p class="price">5000 руб.</p>
+</div>
+
+<div class="item">
+    <img src="images/sumki8.png" alt="Сумка Jack's square" 
+         onclick="openModal(
+            'images/sumki8.png', 
+            'Сумка Jack\'s square', 
+            'Компактная сумка Jack\'s square. Материал: прочный текстиль с кожаными элементами. Особенности: компактный размер, практичный дизайн, надежная конструкция.',
+            ['Universal'],
+            3000
+         )"/>
+    <h3>Сумка Jack's square</h3>
+    <p class="description">Компактная практичная сумка</p>
+    <p class="price">3000 руб.</p>
+</div>
+
+<div class="item">
+    <img src="images/sumki10.png" alt="Сумка Jack's square Premium" 
+         onclick="openModal(
+            'images/sumki10.png', 
+            'Сумка Jack\'s square Premium', 
+            'Премиальная сумка Jack\'s square из улучшенной коллекции. Материал: высококачественный текстиль с кожаной отделкой. Особенности: увеличенный размер, улучшенные материалы, стильный дизайн.',
+            ['Universal'],
+            6000
+         )"/>
+    <h3>Сумка Jack's square Premium</h3>
+    <p class="description">Премиальная версия популярной модели</p>
+    <p class="price">6000 руб.</p>
+</div>
+</div>
+</section>
+<section id="about">
+<h2>О нас</h2>
+<p>Мы предлагаем стильную и качественную мужскую одежду на любой вкус.</p>
+</section>
+<div class="buttons">
+  <a href="cart.html"><button>Перейти в корзину</button></a>
+  <a href="Ofice.html"><button>Личный кабинет</button></a>
+</div>
+<section id="contact">
+  <h2>Контакты</h2>
+  <p>Email: mmmmmmmmmboec@gmail.com</p>
+  <p>Телефон: +7 900 123-45-67</p>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mmmmmmmmmboec@gmail.com&su=Хочу%20оформить%20заказ&body=Здравствуйте!%0AЯ%20хочу%20заказать%20товары%20из%20вашей%20коллекции.%0AСвяжитесь%20со%20мной,%20пожалуйста." target="_blank" title="Написать письмо">
+      <img src="images/gmail.png" alt="Написать письмо" width="50" height="50" style="cursor: pointer;">
+    </a>
+
+    
+    
+    <a href="https://wa.me/79001234567?text=Здравствуйте!%20Я%20хочу%20сделать%20заказ." target="_blank" title="Написать в WhatsApp">
+      <img src="images/whatsap.png" alt="Написать в WhatsApp" width="50" height="50" style="cursor: pointer;">
+    </a>
+    
+</section>
+</div>
+<footer>
+<p>© 2025 Мужская одежда. Все права защищены.</p>
+</footer>
+<button id="topBtn" onclick="scrollToTop()" title="Наверх">↑</button>
+<script>
+        window.onscroll = function () {
+          const btn = document.getElementById("topBtn");
+          if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            btn.style.display = "block";
+          } else {
+            btn.style.display = "none";
+          }
+        };
+        
+        function scrollToTop() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        </script>
+
+<script>
+    function addToCart(productName, price, size) {
+        const product = {
+            name: productName,
+            price: price,
+            size: size
+        };
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push(product);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(`Добавлено в корзину: ${product.name}, размер: ${product.size}, цена: ${product.price}₽`);
+    }
+</script>
+
+<!-- Модальное окно -->
+<div id="productModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        
+        <div class="modal-image-container">
+            <img id="modalImage" class="modal-image" src="" alt="Product Image">
+        </div>
+        
+        <div class="modal-details">
+            <h2 id="modalTitle" class="modal-title"></h2>
+            <p id="modalDescription" class="modal-description"></p>
+            <div id="modalSizes" class="modal-sizes"></div>
+            <div id="modalPrice" class="modal-price"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+function openModal(imageSrc, title, description, sizes, price) {
+    const modal = document.getElementById('productModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalSizes = document.getElementById('modalSizes');
+    const modalPrice = document.getElementById('modalPrice');
+
+    modalImage.src = imageSrc;
+    modalImage.alt = title;
+    modalTitle.textContent = title;
+    modalDescription.textContent = description;
+    modalPrice.textContent = `Цена: ${price} руб.`;
+
+    // Очищаем предыдущие размеры
+    modalSizes.innerHTML = '';
+    
+    // Добавляем кнопки размеров
+    sizes.forEach(size => {
+        const button = document.createElement('button');
+        button.textContent = size;
+        button.onclick = () => {
+            addToCart(title, price, size);
+            closeModal();
+        };
+        modalSizes.appendChild(button);
+    });
+
+    modal.style.display = 'block';
+}
+
+function closeModal() {
+    const modal = document.getElementById('productModal');
+    modal.style.display = 'none';
+}
+
+// Закрытие при клике вне модального окна
+window.onclick = function(event) {
+    const modal = document.getElementById('productModal');
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+</script>
+</body>
+</html>

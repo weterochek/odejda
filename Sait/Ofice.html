@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<div class="buttons">
+<style>
+        #topBtn {
+  display: none; /* по умолчанию скрыта */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+#topBtn:hover {
+  background-color: #666;
+}
+         a {
+      text-decoration: none;
+      color: rgb(0, 0, 0); /* Можно также задать свой цвет */
+    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .cart-icon {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+    </style>
+</div></head>
+<title>Личный кабинет и Корзина</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        padding: 15px 20px;
+    }
+    .icons-container {
+        display: flex;
+        gap: 15px; /* Расстояние между иконками */
+    }
+    .icon {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        filter: invert(100%); /* Делаем иконки белыми на тёмном фоне */
+    }
+    .dws-menu {
+            background-color: #585858a4;
+            /* Черный цвет фона */
+            position: fixed;
+            /* Сделайте его липким/фиксированным */
+            top: 0px;
+            /* Скрыть панель навигации 50 пикселей за пределами верхнего вида */
+            width: 100%;
+            /* Полная ширина */
+            transition: top 0.3s;
+            z-index: 1000;
+            
+        }
+
+        /* Стиль ссылок навигационной панели */
+        .dws-menu a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+        }
+
+        .dws-menu a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .logo {
+      margin-top: 50px; /* Картинка будет опущена на 50px */
+    }
+        
+        #topBtn {
+          display: none; /* по умолчанию скрыта */
+          position: fixed;
+          bottom: 30px;
+          right: 30px;
+          z-index: 999;
+          font-size: 18px;
+          border: none;
+          outline: none;
+          background-color: #444;
+          color: white;
+          cursor: pointer;
+          padding: 10px 20px;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+          transition: background-color 0.3s ease;
+        }
+        .message {
+            margin-top: 15px;
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+        #topBtn:hover {
+          background-color: #666;
+        }
+        
+                
+                 a {
+              text-decoration: none;
+              color: rgb(0, 0, 0); /* Можно также задать свой цвет */
+            }
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background-color: #f5f5f5;
+                }
+                header {
+                    background-color: #ffffff;
+                    color: rgb(255, 255, 255);
+                    padding: 15px;
+                    text-align: center;
+                }
+                nav {
+                    display: flex;
+                    justify-content: center;
+                    background-color: #575656;
+                    padding: 10px;
+                }
+                nav a {
+                    color: white;
+                    text-decoration: none;
+                    padding: 10px 20px;
+                }
+                nav a:hover {
+                    background-color: #666;
+                }
+                .container {
+                    padding: 20px;
+                    text-align: center;
+                }
+                .catalog {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+                .item {
+                    background: white;
+                    margin: 15px;
+                    padding: 15px;
+                    border-radius: 5px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                }
+                .buttons {
+                    text-align: center;
+                    margin-top: 20px;
+                }
+                .buttons button {
+                    padding: 10px 20px;
+                    margin: 5px;
+                    border: none;
+                    cursor: pointer;
+                    background-color: #444;
+                    color: white;
+                    border-radius: 5px;
+                }
+                .buttons button:hover {
+                    background-color: #666;
+                }
+                footer {
+                    background-color: #333;
+                    color: white;
+                    text-align: center;
+                    padding: 10px;
+                    position: relative;
+                    bottom: 0;
+                    width: 100%;
+                }
+                .dws-menu {
+                    background-color: #585858a4;
+                    /* Черный цвет фона */
+                    position: fixed;
+                    /* Сделайте его липким/фиксированным */
+                    top: 0px;
+                             /* Скрыть панель навигации 50 пикселей за пределами верхнего вида */
+                    width: 100%;
+                    /* Полная ширина */
+                    transition: top 0.3s;
+                    z-index: 1000;
+                    
+                }
+        
+                /* Стиль ссылок навигационной панели */
+                .dws-menu a {
+                    float: left;
+                    display: block;
+                    color: white;
+                    text-align: center;
+                    padding: 15px;
+                    text-decoration: none;
+                }
+        
+                .dws-menu a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+                .icon {
+                    float: right;}
+                .icons-container a{
+                    float: right;
+                    font-size: 100px;
+                }
+                .logo {
+              margin-top: 50px; /* Картинка будет опущена на 50px */
+            }
+        
+                
+        
+                
+            
+</style>
+
+<body>
+<div></div>
+<div class="icons-container">
+<a href="cart.html">
+<img alt="Корзина" class="icon" src="images/cart.png"/>
+</a>
+<a href="Ofice.html">
+<img alt="Личный кабинет" class="icon" src="images/cabinet.png"/>
+</a>
+</div>
+
+<script>
+    function addToCart(productName, price, size) {
+        const product = {
+            name: productName,
+            price: price,
+            size: size
+        };
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push(product);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(`Добавлено в корзину: ${product.name}, размер: ${product.size}, цена: ${product.price}₽`);
+    }
+</script>
+<div class="logo">
+<a href="Untitled-1.html">
+<img alt="logo" height="300px" src="images/logo.png" width="300px"/>
+</a>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Личный кабинет</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        .container {
+            width: 300px;
+            margin: 100px auto;
+            background: white;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 107%;
+            padding: 10px;
+            border: none;
+            background: #333;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #666;
+        }
+    </style>
+
+<body>
+<nav class="dws-menu">
+<ul>
+<a href="Untitled-1.html">Главная</a>
+<a href="Untitled-1.html">Каталог</a>
+<a href="#about">О нас</a>
+<a href="#contact">Контакты</a>
+<a href="cart.html">Корзина</a>
+<a href="Ofice.html">Личный кабинет</a>
+
+</ul>
+</nav>
+<div class="container">
+  <h2 id="form-title">Вход</h2>
+
+  <!-- Форма входа -->
+  <div id="login-form">
+    <input id="login-username" placeholder="Логин" type="text" />
+    <input id="login-password" placeholder="Пароль" type="password" />
+    <button onclick="login()">Войти</button>
+    <p>Нет аккаунта? <a href="#" onclick="toggleForm()">Зарегистрироваться</a></p>
+  </div>
+
+  <!-- Форма регистрации -->
+  <div id="register-form" style="display: none;">
+    <input id="register-username" placeholder="Логин" type="text" />
+    <input id="register-password" placeholder="Пароль" type="password" />
+    <button onclick="register()">Зарегистрироваться</button>
+    <p>Уже есть аккаунт? <a href="#" onclick="toggleForm()">Войти</a></p>
+  </div>
+
+  <!-- Успешный вход -->
+  <div id="profile" style="display: none;">
+    <h3>Добро пожаловать, <span id="user-name"></span>!</h3>
+    <button onclick="logout()">Выйти</button>
+  </div>
+
+  <div class="message" id="message"></div>
+</div>
+<script>
+     function toggleForm() {
+    const loginForm = document.getElementById("login-form");
+    const registerForm = document.getElementById("register-form");
+    const title = document.getElementById("form-title");
+    const message = document.getElementById("message");
+    message.textContent = "";
+    message.className = "";
+
+    if (loginForm.style.display === "none") {
+      loginForm.style.display = "block";
+      registerForm.style.display = "none";
+      title.textContent = "Вход";
+    } else {
+      loginForm.style.display = "none";
+      registerForm.style.display = "block";
+      title.textContent = "Регистрация";
+    }
+  }
+
+  async function login() {
+    const username = document.getElementById("login-username").value.trim();
+    const password = document.getElementById("login-password").value.trim();
+    const message = document.getElementById("message");
+
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        message.textContent = data.message || "Ошибка входа";
+        message.className = "error";
+      } else {
+        message.textContent = "";
+localStorage.setItem("token", data.token);
+localStorage.setItem("username", data.user.username);
+
+document.getElementById("login-form").style.display = "none";
+document.getElementById("profile").style.display = "block";
+document.getElementById("user-name").textContent = data.user.username;
+      }
+    } catch (err) {
+      message.textContent = "Ошибка подключения к серверу";
+      message.className = "error";
+    }
+  }
+
+  async function register() {
+    const username = document.getElementById("register-username").value.trim();
+    const password = document.getElementById("register-password").value.trim();
+    const message = document.getElementById("message");
+
+    if (!username || !password) {
+      message.textContent = "Заполните все поля.";
+      message.className = "error";
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        message.textContent = data.message || "Ошибка регистрации";
+        message.className = "error";
+      } else {
+        message.textContent = "Регистрация успешна!";
+        message.className = "message";
+        setTimeout(() => {
+          toggleForm();
+        }, 1500);
+      }
+    } catch (err) {
+      message.textContent = "Ошибка подключения к серверу";
+      message.className = "error";
+    }
+  }
+
+function logout() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("username");
+
+  document.getElementById("login-form").style.display = "block";
+  document.getElementById("profile").style.display = "none";
+  document.getElementById("message").textContent = "";
+  document.getElementById("message").className = "";
+  document.getElementById("form-title").textContent = "Вход";
+}
+</script>
+<h2>О нас</h2>
+<p>Мы предлагаем стильную и качественную мужскую одежду на любой вкус.</p>
+
+<section id="contact">
+    <h2>Контакты</h2>
+    <p>Email: mmmmmmmmmboec@gmail.com</p>
+    <p>Телефон: +7 900 123-45-67</p>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mmmmmmmmmboec@gmail.com&su=Хочу%20оформить%20заказ&body=Здравствуйте!%0AЯ%20хочу%20заказать%20товары%20из%20вашей%20коллекции.%0AСвяжитесь%20со%20мной,%20пожалуйста." target="_blank" title="Написать письмо">
+        <img src="images/gmail.png" alt="Написать письмо" width="50" height="50" style="cursor: pointer;">
+      </a>
+
+      
+      
+      <a href="https://wa.me/79001234567?text=Здравствуйте!%20Я%20хочу%20сделать%20заказ." target="_blank" title="Написать в WhatsApp">
+        <img src="images/whatsap.png" alt="Написать в WhatsApp" width="50" height="50" style="cursor: pointer;">
+      </a>
+      
+</section>
+</body></div>
+<footer>
+<p>© 2025 Мужская одежда. Все права защищены.</p>
+</footer>
+<button id="topBtn" onclick="scrollToTop()" title="Наверх">↑</button>
+<script>
+        window.onscroll = function () {
+          const btn = document.getElementById("topBtn");
+          if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            btn.style.display = "block";
+          } else {
+            btn.style.display = "none";
+          }
+        };
+        
+        function scrollToTop() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        </script>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const token = localStorage.getItem("token");
+    const username = localStorage.getItem("username");
+
+    if (token && username) {
+      document.getElementById("login-form").style.display = "none";
+      document.getElementById("profile").style.display = "block";
+      document.getElementById("user-name").textContent = username;
+    }
+  });
+</script>
+</html>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<link href="styles/style.css" rel="stylesheet" type="text/css"/>
+<link href="styles/modal.css" rel="stylesheet" type="text/css"/>
+<meta charset="utf-8"/>
+<link href="css/font-awesome.css" rel="stylesheet" type="text/css"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Мужская одежда</title>
+<style>
+        #topBtn {
+  display: none; /* по умолчанию скрыта */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+#topBtn:hover {
+  background-color: #666;
+}
+         a {
+      text-decoration: none;
+      color: rgb(0, 0, 0); /* Можно также задать свой цвет */
+    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        nav a:hover {
+            background-color: #666;
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        .catalog {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .item {
+            background: white;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            background-color: #444;
+            color: white;
+            border-radius: 5px;
+        }
+        .buttons button:hover {
+            background-color: #666;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .dws-menu {
+            background-color: #585858a4;
+            /* Черный цвет фона */
+            position: fixed;
+            /* Сделайте его липким/фиксированным */
+            top: 0px;
+            /* Скрыть панель навигации 50 пикселей за пределами верхнего вида */
+            width: 100%;
+            /* Полная ширина */
+            transition: top 0.3s;
+            z-index: 1000;
+            
+        }
+
+        /* Стиль ссылок навигационной панели */
+        .dws-menu a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            text-decoration: none;
+        }
+
+        .dws-menu a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .logo {
+      margin-top: 50px; /* Картинка будет опущена на 50px */
+    }
+    </style>
+</head>
+<body>
+<nav class="dws-menu">
+<ul>
+<a href="Untitled-1.html">Главная</a>
+<a href="#catalog">Каталог</a>
+<a href="#about">О нас</a>
+<a href="#contact">Контакты</a>
+<a href="cart.html">Корзина</a>
+<a href="Ofice.html">Личный кабинет</a>
+</ul>
+</nav>
+<div class="container">
+<div class="logo">
+<a href="Untitled-1.html">
+<img alt="logo" height="300px" src="images/logo.png" width="300px"/>
+</a>
+</div>
+<section id="catalog">
+<h2>Каталог</h2>
+<h3>Ветровки</h3>
+<div class="catalog">
+<style>
+                    img {
+                      border-radius: 10px; /* Чем больше значение — тем сильнее скругление */
+                    }
+                    </style>
+<style>
+                    img {
+                      transition: transform 0.4s ease;
+                    }
+                  
+                    img:hover {
+                      transform: scale(0.9); /* Увеличение изображения при наведении */
+                    }
+                  </style>
+<div class="item">
+    <img src="images/vetrovka1.png" alt="Ветровка Nke Men's Black" 
+         onclick="openModal(
+            'images/vetrovka1.png',
+            'Ветровка Nke Men\'s Black',
+            'Классическая черная ветровка Nike для мужчин. Материал: 100% полиэстер с водоотталкивающей пропиткой. Особенности: вентиляционные отверстия, эластичные манжеты, боковые карманы на молнии. Идеальна для спорта и повседневной носки.',
+            ['S', 'M', 'L', 'XL'],
+            3200
+         )"/>
+    <h3>Ветровка Nke Men's Black</h3>
+    <p class="description">Классическая черная ветровка</p>
+    <p class="price">3200 руб.</p>
+</div>
+<div class="item">
+    <img src="images/vetrovka2.png" alt="Ветровка Nike" 
+         onclick="openModal(
+            'images/vetrovka2.png',
+            'Ветровка Nike',
+            'Современная ветровка Nike с улучшенной вентиляцией. Материал: 90% полиэстер, 10% эластан. Особенности: сетчатая подкладка, регулируемый низ, система вентиляции Dri-FIT. Отлично подходит для бега и активного отдыха.',
+            ['S', 'M', 'L', 'XL'],
+            3200
+         )"/>
+    <h3>Ветровка Nike</h3>
+    <p class="description">Спортивная ветровка с вентиляцией</p>
+    <p class="price">3200 руб.</p>
+</div>
+<div class="item">
+    <img src="images/vetrovka3.png" alt="Ветровка W2C Nike vintage" 
+         onclick="openModal(
+            'images/vetrovka3.png',
+            'Ветровка W2C Nike vintage',
+            'Винтажная ветровка Nike в стиле 90-х. Материал: 100% нейлон. Особенности: оригинальный ретро-дизайн, большой логотип, контрастные вставки, прочная молния YKK. Идеальный выбор для создания стильного образа в стиле 90-х.',
+            ['S', 'M', 'L', 'XL'],
+            4500
+         )"/>
+    <h3>Ветровка W2C Nike vintage</h3>
+    <p class="description">Винтажная модель в стиле 90-х</p>
+    <p class="price">4500 руб.</p>
+</div>
+<div class="item">
+    <img src="images/vetrovka4.png" alt="Ветровка Nike Air RARE 90s" 
+         onclick="openModal(
+            'images/vetrovka4.png',
+            'Ветровка Nike Air RARE 90s',
+            'Раритетная модель Nike Air 90-х годов. Материал: нейлон с водоотталкивающей пропиткой. Особенности: уникальный винтажный дизайн, фирменная графика Nike Air, оригинальная фурнитура того времени, коллекционное издание. Настоящая находка для ценителей винтажной одежды.',
+            ['S', 'M', 'L', 'XL'],
+            3500
+         )"/>
+    <h3>Ветровка Nike Air RARE 90s</h3>
+    <p class="description">Раритетная модель Nike Air</p>
+    <p class="price">3500 руб.</p>
+</div>
+<div class="item">
+    <img src="images/vetrovka5.png" alt="Ветровка Nike Vintage Late 90s" 
+         onclick="openModal(
+            'images/vetrovka5.png',
+            'Ветровка Nike Vintage Late 90s',
+            'Винтажная ветровка Nike конца 90-х. Материал: полиэстер с особым покрытием. Особенности: аутентичный крой конца 90-х, фирменная вышивка swoosh, регулируемые манжеты. Сочетание винтажного стиля и практичности.',
+            ['S', 'M', 'L', 'XL'],
+            4000
+         )"/>
+    <h3>Ветровка Nike Vintage Late 90s</h3>
+    <p class="description">Аутентичная модель конца 90-х</p>
+    <p class="price">4000 руб.</p>
+</div>
+<div class="item">
+    <img src="images/vetrovka6.png" alt="Ветровка Nike Jaqueta Nike X Cav Empt" 
+         onclick="openModal(
+            'images/vetrovka6.png',
+            'Ветровка Nike Jaqueta Nike X Cav Empt',
+            'Коллаборационная модель Nike x Cav Empt. Материал: технологичный нейлон с водоотталкивающей пропиткой. Особенности: уникальный дизайн от Cav Empt, передовые технологии Nike, множество функциональных карманов. Лимитированная серия для истинных ценителей.',
+            ['S', 'M', 'L', 'XL'],
+            5000
+         )"/>
+    <h3>Ветровка Nike Jaqueta Nike X Cav Empt</h3>
+    <p class="description">Лимитированная коллаборация</p>
+    <p class="price">5000 руб.</p>
+</div>
+<div class="item">
+    <img src="images/vetrovka7.png" alt="Ветровка Vintage Nike 90s" 
+         onclick="openModal(
+            'images/vetrovka7.png',
+            'Ветровка Vintage Nike 90s',
+            'Винтажная ветровка Nike золотой эры 90-х. Материал: прочный нейлон. Особенности: яркий дизайн в стиле 90-х, большой вышитый логотип, контрастные вставки, оригинальная фурнитура. Настоящая находка для любителей винтажной спортивной одежды.',
+            ['S', 'M', 'L', 'XL'],
+            5000
+         )"/>
+    <h3>Ветровка Vintage Nike 90s</h3>
+    <p class="description">Винтажная модель золотой эры</p>
+    <p class="price">5000 руб.</p>
+</div>
+<div class="item">
+    <img src="images/vetrovka8.png" alt="Ветровка Herren" 
+         onclick="openModal(
+            'images/vetrovka8.png',
+            'Ветровка Herren',
+            'Премиальная ветровка Herren. Материал: высокотехнологичный полиэстер с мембраной. Особенности: немецкое качество, проклеенные швы, система вентиляции, влагозащита 10000 мм. Идеальный выбор для активного отдыха в любую погоду.',
+            ['S', 'M', 'L', 'XL'],
+            6000
+         )"/>
+    <h3>Ветровка Herren</h3>
+    <p class="description">Премиальная защита от непогоды</p>
+    <p class="price">6000 руб.</p>
+</div>
+<div class="item">
+    <img src="images/vetrovka9.png" alt="Ветровка Venom Attack 90" 
+         onclick="openModal(
+            'images/vetrovka9.png',
+            'Ветровка Venom Attack 90',
+            'Эксклюзивная ветровка из коллекции Venom Attack. Материал: инновационный нейлон с защитным покрытием. Особенности: агрессивный дизайн, светоотражающие элементы, усиленная защита от ветра, тактические карманы. Создана для городских исследователей.',
+            ['S', 'M', 'L', 'XL'],
+            6000
+         )"/>
+    <h3>Ветровка Venom Attack 90</h3>
+    <p class="description">Эксклюзивный городской дизайн</p>
+    <p class="price">6000 руб.</p>
+</div>
+<div class="item">
+    <img src="images/vetrovka10.png" alt="Ветровка PUMA VAPOROUS" 
+         onclick="openModal(
+            'images/vetrovka10.png',
+            'Ветровка PUMA VAPOROUS',
+            'Легкая спортивная ветровка PUMA VAPOROUS. Материал: ультралегкий полиэстер с технологией dryCELL. Особенности: минималистичный дизайн, сетчатые вставки для вентиляции, компактно складывается, светоотражающий логотип. Идеальна для бега и фитнеса.',
+            ['S', 'M', 'L', 'XL'],
+            4000
+         )"/>
+    <h3>Ветровка PUMA VAPOROUS</h3>
+    <p class="description">Ультралегкая спортивная модель</p>
+    <p class="price">4000 руб.</p>
+</div>
+</div>
+</section>
+<section id="about">
+<h2>О нас</h2>
+<p>Мы предлагаем стильную и качественную мужскую одежду на любой вкус.</p>
+</section>
+<div class="buttons">
+  <a href="cart.html"><button>Перейти в корзину</button></a>
+  <a href="Ofice.html"><button>Личный кабинет</button></a>
+</div>
+<section id="contact">
+  <h2>Контакты</h2>
+  <p>Email: mmmmmmmmmboec@gmail.com</p>
+  <p>Телефон: +7 900 123-45-67</p>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mmmmmmmmmboec@gmail.com&su=Хочу%20оформить%20заказ&body=Здравствуйте!%0AЯ%20хочу%20заказать%20товары%20из%20вашей%20коллекции.%0AСвяжитесь%20со%20мной,%20пожалуйста." target="_blank" title="Написать письмо">
+      <img src="images/gmail.png" alt="Написать письмо" width="50" height="50" style="cursor: pointer;">
+    </a>
+
+    
+    
+    <a href="https://wa.me/79001234567?text=Здравствуйте!%20Я%20хочу%20сделать%20заказ." target="_blank" title="Написать в WhatsApp">
+      <img src="images/whatsap.png" alt="Написать в WhatsApp" width="50" height="50" style="cursor: pointer;">
+    </a>
+    
+</section>
+</div>
+<footer>
+<p>© 2025 Мужская одежда. Все права защищены.</p>
+</footer>
+<button id="topBtn" onclick="scrollToTop()" title="Наверх">↑</button>
+<script>
+    window.onscroll = function () {
+      const btn = document.getElementById("topBtn");
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    };
+    
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    </script>
+
+<script>
+    function addToCart(productName, price, size) {
+        const product = {
+            name: productName,
+            price: price,
+            size: size
+        };
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push(product);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(`Добавлено в корзину: ${product.name}, размер: ${product.size}, цена: ${product.price}₽`);
+    }
+</script>
+
+<!-- Модальное окно -->
+<div id="productModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-image-container">
+            <img id="modalImage" class="modal-image" src="" alt="Product Image">
+        </div>
+        <div class="modal-details">
+            <h2 id="modalTitle" class="modal-title"></h2>
+            <p id="modalDescription" class="modal-description"></p>
+            <div id="modalSizes" class="modal-sizes"></div>
+            <div id="modalPrice" class="modal-price"></div>
+        </div>
+    </div>
+</div>
+
+<script src="scripts/modal.js"></script>
+</body>
+</html>
