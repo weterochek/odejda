@@ -31,11 +31,11 @@ const userSchema = new mongoose.Schema({
   }
 });
 // Статические файлы
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'Sait')));
 
 // Корневой маршрут — на главную
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'Untitled-1.html'));
+  res.sendFile(path.join(__dirname, 'Sait', 'Untitled-1.html'));
 });
 // Хеширование пароля перед сохранением
 userSchema.pre('save', async function (next) {
